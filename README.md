@@ -15,6 +15,12 @@
   - [Problem 2.2 - Binary search tree](#problem-22---binary-search-tree)
 - [Solution for problem 1](#solution-for-problem-1)
   - [The student class](#the-student-class)
+- [Solution for problem 2](#solution-for-problem-2)
+  - [Problem 2.1](#problem-21)
+  - [Problem 2.2](#problem-22)
+- [Contributor list](#contributor-list)
+  - [Problem 1](#problem-1)
+  - [Problem 2](#problem-2-1)
 
 <!-- /code_chunk_output -->
 
@@ -95,3 +101,51 @@ The student class's definition is defined inside the directory: `src/model/stude
 
 Here is the link to the `student.h` file: [Link](./src/model/student.h).
 Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
+
+## Solution for problem 2
+
+### Problem 2.1
+
+### Problem 2.2
+
+---
+
+## Contributor list
+
+### Problem 1
+
+| Feature | Contributor |
+| :--- | :--- |
+| 0 - Student class | Nguyen Nhat Minh |
+| 1 | |
+| 2 | |
+| 3 | |
+| 4 | |
+| 5 | |
+| 6 | |
+
+### Problem 2
+
+**Problem 2.1:**
+
+| Feature | Contributor |
+| :--- | :--- |
+| 1 | |
+| 2 | |
+| 3 | |
+| 4 | |
+| 5 | |
+| 6 | |
+
+**Problem 2.2:**
+
+| Feature | Contributor |
+| :--- | :--- |
+| 1 | |
+| 2 | |
+| 3 | |
+| 4 | |
+| 5 | |
+| 6 | |
+
+---
