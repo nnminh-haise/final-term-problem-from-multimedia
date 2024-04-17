@@ -13,6 +13,8 @@
 - [Problem 2](#problem-2)
   - [Problem 2.1 - The knight tour problem](#problem-21---the-knight-tour-problem)
   - [Problem 2.2 - Binary search tree](#problem-22---binary-search-tree)
+- [Solution for problem 1](#solution-for-problem-1)
+  - [The student class](#the-student-class)
 
 <!-- /code_chunk_output -->
 
@@ -79,3 +81,17 @@ The program should:
 - Traverse throught the tree by these algorithms: PreOrder, InOrder, PostOrder (recursive algorithm or non-recursive algorithm).
 
 Remember to display the result and the processing time when displaying the result.
+
+---
+
+## Solution for problem 1
+
+### The student class
+
+The student class's definition is defined inside the directory: `src/model/student*`
+
+- The `student.h` file is the class's definition, which includes the class definition and the class's methods definition.
+- The `student.h` file is the class's methods implementation.
+
+Here is the link to the `student.h` file: [Link](./src/model/student.h).
+Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
