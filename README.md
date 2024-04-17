@@ -19,6 +19,7 @@
   - [Problem 2.1](#problem-21)
   - [Problem 2.2](#problem-22)
 - [Contributor list](#contributor-list)
+  - [Rule for contributors](#rule-for-contributors)
   - [Problem 1](#problem-1)
   - [Problem 2](#problem-2-1)
 
@@ -100,6 +101,7 @@ The student class's definition is defined inside the directory: `src/model/stude
 - The `student.h` file is the class's methods implementation.
 
 Here is the link to the `student.h` file: [Link](./src/model/student.h).
+
 Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
 
 ## Solution for problem 2
@@ -111,6 +113,11 @@ Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
 ---
 
 ## Contributor list
+
+### Rule for contributors
+
+- Every contributor when working must create a separate branch and create a pull request before merging into the main branch.
+- The branch name and commit message mush follow this convention: [git branch name and commit message convetion](https://dev.to/varbsan/a-simplified-convention-for-naming-branches-and-commits-in-git-il4).
 
 ### Problem 1
 
@@ -128,14 +135,9 @@ Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
 
 **Problem 2.1:**
 
-| Feature | Contributor |
+|  | Contributor |
 | :--- | :--- |
-| 1 | |
-| 2 | |
-| 3 | |
-| 4 | |
-| 5 | |
-| 6 | |
+| 1 | Nguyen Thanh Vinh |
 
 **Problem 2.2:**
 
@@ -144,8 +146,5 @@ Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
 | 1 | |
 | 2 | |
 | 3 | |
-| 4 | |
-| 5 | |
-| 6 | |
 
 ---
