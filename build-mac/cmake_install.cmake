@@ -40,5 +40,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD:build/cmake_install.cmake
 file(WRITE "D:/Code/C++/final-term-problem-from-multimedia/build/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> 28e549a (chore: remove build folder to avoid conflicts between many build files):build-mac/cmake_install.cmake
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
