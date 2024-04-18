@@ -1,3 +1,0 @@
-/Users/nnminh/Code/proj-cpp-for-multimedia/build/CMakeFiles/StudentApp.dir
-/Users/nnminh/Code/proj-cpp-for-multimedia/build/CMakeFiles/edit_cache.dir
-/Users/nnminh/Code/proj-cpp-for-multimedia/build/CMakeFiles/rebuild_cache.dir
