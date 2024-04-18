@@ -124,7 +124,7 @@ Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
 | Feature | Contributor |
 | :--- | :--- |
 | 0 - Student class | Nguyen Nhat Minh |
-| 1 | |
+| 1 - Modeling data structure | Nguyen Nhat Minh |
 | 2 | |
 | 3 | |
 | 4 | |
@@ -137,7 +137,7 @@ Here is the link to the `student.cpp` file: [Link](./src/model/student.cpp).
 
 |  | Contributor |
 | :--- | :--- |
-| 1 | Nguyen Thanh Vinh |
+| 1 | Nguyen Thanh Vinh, Luong Minh Khoi |
 
 **Problem 2.2:**
 

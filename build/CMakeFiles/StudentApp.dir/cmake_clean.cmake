@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/StudentApp.dir/src/main.cpp.o.d"
   "CMakeFiles/StudentApp.dir/src/model/student.cpp.o"
   "CMakeFiles/StudentApp.dir/src/model/student.cpp.o.d"
+  "CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o"
+  "CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o.d"
   "StudentApp"
   "StudentApp.pdb"
 )

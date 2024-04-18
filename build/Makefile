@@ -177,6 +177,30 @@ src/model/student.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/model/student.cpp.s
 .PHONY : src/model/student.cpp.s
 
+src/test/testLinkedList.o: src/test/testLinkedList.cpp.o
+.PHONY : src/test/testLinkedList.o
+
+# target to build an object file
+src/test/testLinkedList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o
+.PHONY : src/test/testLinkedList.cpp.o
+
+src/test/testLinkedList.i: src/test/testLinkedList.cpp.i
+.PHONY : src/test/testLinkedList.i
+
+# target to preprocess a source file
+src/test/testLinkedList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.i
+.PHONY : src/test/testLinkedList.cpp.i
+
+src/test/testLinkedList.s: src/test/testLinkedList.cpp.s
+.PHONY : src/test/testLinkedList.s
+
+# target to generate assembly for a file
+src/test/testLinkedList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.s
+.PHONY : src/test/testLinkedList.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +216,9 @@ help:
 	@echo "... src/model/student.o"
 	@echo "... src/model/student.i"
 	@echo "... src/model/student.s"
+	@echo "... src/test/testLinkedList.o"
+	@echo "... src/test/testLinkedList.i"
+	@echo "... src/test/testLinkedList.s"
 .PHONY : help
 
 
