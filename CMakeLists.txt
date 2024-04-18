@@ -11,6 +11,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(StudentApp
     src/main.cpp
     src/model/student.cpp
+    src/Knight/Knight.cpp
 )
 
 # Set include directories
