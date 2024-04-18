@@ -12,11 +12,8 @@ add_executable(StudentApp
     src/main.cpp
     src/model/student.cpp
     src/Knight/Knight.cpp
+    src/2.1/main.cpp
 )
-
-add_executable(Task2.1 src/2.1/main.cpp)
 
 # Set include directories
 target_include_directories(StudentApp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories(Task2.1 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-

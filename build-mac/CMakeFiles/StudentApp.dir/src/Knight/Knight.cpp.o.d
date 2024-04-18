@@ -1,5 +1,5 @@
-CMakeFiles/StudentApp.dir/src/main.cpp.o: \
-  /Users/nnminh/Code/proj-cpp-for-multimedia/src/main.cpp \
+CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o: \
+  /Users/nnminh/Code/proj-cpp-for-multimedia/src/Knight/Knight.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__assert \
   /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/include/c++/v1/__config \

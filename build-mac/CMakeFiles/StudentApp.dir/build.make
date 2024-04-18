@@ -97,35 +97,51 @@ CMakeFiles/StudentApp.dir/src/model/student.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/StudentApp.dir/src/model/student.cpp.s"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nnminh/Code/proj-cpp-for-multimedia/src/model/student.cpp -o CMakeFiles/StudentApp.dir/src/model/student.cpp.s
 
-CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o: CMakeFiles/StudentApp.dir/flags.make
-CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o: /Users/nnminh/Code/proj-cpp-for-multimedia/src/test/testLinkedList.cpp
-CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o: CMakeFiles/StudentApp.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o -MF CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o.d -o CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o -c /Users/nnminh/Code/proj-cpp-for-multimedia/src/test/testLinkedList.cpp
+CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o: CMakeFiles/StudentApp.dir/flags.make
+CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o: /Users/nnminh/Code/proj-cpp-for-multimedia/src/Knight/Knight.cpp
+CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o: CMakeFiles/StudentApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o -MF CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o.d -o CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o -c /Users/nnminh/Code/proj-cpp-for-multimedia/src/Knight/Knight.cpp
 
-CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.i"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nnminh/Code/proj-cpp-for-multimedia/src/test/testLinkedList.cpp > CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.i
+CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nnminh/Code/proj-cpp-for-multimedia/src/Knight/Knight.cpp > CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.i
 
-CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.s"
-	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nnminh/Code/proj-cpp-for-multimedia/src/test/testLinkedList.cpp -o CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.s
+CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nnminh/Code/proj-cpp-for-multimedia/src/Knight/Knight.cpp -o CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.s
+
+CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o: CMakeFiles/StudentApp.dir/flags.make
+CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o: /Users/nnminh/Code/proj-cpp-for-multimedia/src/2.1/main.cpp
+CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o: CMakeFiles/StudentApp.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o -MF CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o.d -o CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o -c /Users/nnminh/Code/proj-cpp-for-multimedia/src/2.1/main.cpp
+
+CMakeFiles/StudentApp.dir/src/2.1/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/StudentApp.dir/src/2.1/main.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/nnminh/Code/proj-cpp-for-multimedia/src/2.1/main.cpp > CMakeFiles/StudentApp.dir/src/2.1/main.cpp.i
+
+CMakeFiles/StudentApp.dir/src/2.1/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/StudentApp.dir/src/2.1/main.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/nnminh/Code/proj-cpp-for-multimedia/src/2.1/main.cpp -o CMakeFiles/StudentApp.dir/src/2.1/main.cpp.s
 
 # Object files for target StudentApp
 StudentApp_OBJECTS = \
 "CMakeFiles/StudentApp.dir/src/main.cpp.o" \
 "CMakeFiles/StudentApp.dir/src/model/student.cpp.o" \
-"CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o"
+"CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o" \
+"CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o"
 
 # External object files for target StudentApp
 StudentApp_EXTERNAL_OBJECTS =
 
 StudentApp: CMakeFiles/StudentApp.dir/src/main.cpp.o
 StudentApp: CMakeFiles/StudentApp.dir/src/model/student.cpp.o
-StudentApp: CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o
+StudentApp: CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o
+StudentApp: CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o
 StudentApp: CMakeFiles/StudentApp.dir/build.make
 StudentApp: CMakeFiles/StudentApp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable StudentApp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable StudentApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/StudentApp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
