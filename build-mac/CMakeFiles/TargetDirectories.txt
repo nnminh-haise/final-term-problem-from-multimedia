@@ -1,0 +1,3 @@
+/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles/StudentApp.dir
+/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles/edit_cache.dir
+/Users/nnminh/Code/proj-cpp-for-multimedia/build-mac/CMakeFiles/rebuild_cache.dir
