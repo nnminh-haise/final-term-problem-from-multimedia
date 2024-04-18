@@ -8,9 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/nnminh/Code/proj-cpp-for-multimedia/src/2.1/main.cpp" "CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o" "gcc" "CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o.d"
+  "/Users/nnminh/Code/proj-cpp-for-multimedia/src/Knight/Knight.cpp" "CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o" "gcc" "CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o.d"
   "/Users/nnminh/Code/proj-cpp-for-multimedia/src/main.cpp" "CMakeFiles/StudentApp.dir/src/main.cpp.o" "gcc" "CMakeFiles/StudentApp.dir/src/main.cpp.o.d"
   "/Users/nnminh/Code/proj-cpp-for-multimedia/src/model/student.cpp" "CMakeFiles/StudentApp.dir/src/model/student.cpp.o" "gcc" "CMakeFiles/StudentApp.dir/src/model/student.cpp.o.d"
-  "/Users/nnminh/Code/proj-cpp-for-multimedia/src/test/testLinkedList.cpp" "CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o" "gcc" "CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

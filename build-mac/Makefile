@@ -129,6 +129,54 @@ StudentApp/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/build
 .PHONY : StudentApp/fast
 
+src/2.1/main.o: src/2.1/main.cpp.o
+.PHONY : src/2.1/main.o
+
+# target to build an object file
+src/2.1/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/2.1/main.cpp.o
+.PHONY : src/2.1/main.cpp.o
+
+src/2.1/main.i: src/2.1/main.cpp.i
+.PHONY : src/2.1/main.i
+
+# target to preprocess a source file
+src/2.1/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/2.1/main.cpp.i
+.PHONY : src/2.1/main.cpp.i
+
+src/2.1/main.s: src/2.1/main.cpp.s
+.PHONY : src/2.1/main.s
+
+# target to generate assembly for a file
+src/2.1/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/2.1/main.cpp.s
+.PHONY : src/2.1/main.cpp.s
+
+src/Knight/Knight.o: src/Knight/Knight.cpp.o
+.PHONY : src/Knight/Knight.o
+
+# target to build an object file
+src/Knight/Knight.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.o
+.PHONY : src/Knight/Knight.cpp.o
+
+src/Knight/Knight.i: src/Knight/Knight.cpp.i
+.PHONY : src/Knight/Knight.i
+
+# target to preprocess a source file
+src/Knight/Knight.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.i
+.PHONY : src/Knight/Knight.cpp.i
+
+src/Knight/Knight.s: src/Knight/Knight.cpp.s
+.PHONY : src/Knight/Knight.s
+
+# target to generate assembly for a file
+src/Knight/Knight.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/Knight/Knight.cpp.s
+.PHONY : src/Knight/Knight.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -177,30 +225,6 @@ src/model/student.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/model/student.cpp.s
 .PHONY : src/model/student.cpp.s
 
-src/test/testLinkedList.o: src/test/testLinkedList.cpp.o
-.PHONY : src/test/testLinkedList.o
-
-# target to build an object file
-src/test/testLinkedList.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.o
-.PHONY : src/test/testLinkedList.cpp.o
-
-src/test/testLinkedList.i: src/test/testLinkedList.cpp.i
-.PHONY : src/test/testLinkedList.i
-
-# target to preprocess a source file
-src/test/testLinkedList.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.i
-.PHONY : src/test/testLinkedList.cpp.i
-
-src/test/testLinkedList.s: src/test/testLinkedList.cpp.s
-.PHONY : src/test/testLinkedList.s
-
-# target to generate assembly for a file
-src/test/testLinkedList.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/StudentApp.dir/build.make CMakeFiles/StudentApp.dir/src/test/testLinkedList.cpp.s
-.PHONY : src/test/testLinkedList.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,15 +234,18 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... StudentApp"
+	@echo "... src/2.1/main.o"
+	@echo "... src/2.1/main.i"
+	@echo "... src/2.1/main.s"
+	@echo "... src/Knight/Knight.o"
+	@echo "... src/Knight/Knight.i"
+	@echo "... src/Knight/Knight.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/model/student.o"
 	@echo "... src/model/student.i"
 	@echo "... src/model/student.s"
-	@echo "... src/test/testLinkedList.o"
-	@echo "... src/test/testLinkedList.i"
-	@echo "... src/test/testLinkedList.s"
 .PHONY : help
 
 
