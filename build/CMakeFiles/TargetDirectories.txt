@@ -1,3 +1,4 @@
-/Users/nnminh/Code/proj-cpp-for-multimedia/build/CMakeFiles/StudentApp.dir
-/Users/nnminh/Code/proj-cpp-for-multimedia/build/CMakeFiles/edit_cache.dir
-/Users/nnminh/Code/proj-cpp-for-multimedia/build/CMakeFiles/rebuild_cache.dir
+D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/StudentApp.dir
+D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/Task2.1.dir
+D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/ALL_BUILD.dir
+D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/ZERO_CHECK.dir
