@@ -1,16 +1,21 @@
-// BT ve con ma di tuan
 #include <iostream>
 #include <vector>
 #include <iomanip>
-using namespace std;
+#include <string.h>
+
+#define MAX 10
 
 int X[8] = {-2, -1, 1, 2, 2, 1, -1, -2};
 int Y[8] = {-1, -2, -2, -1, 1, 2, 2, 1};
 
-// Thuat toan
-void tour(vector<vector<int>> &a, int i, int x, int y, bool &q)
+bool isValid(int a[][MAX], int n, int value, int x, int y)
 {
-    int k, u, v, n = a.size();
+    return (0 <= x) && (x < n) && (0 <= y) && (y < n) && (a[x][y] == value);
+}
+
+void tour(int a[][MAX], int n, int i, int x, int y, bool &q)
+{
+    int k, u, v;
     bool q1;
     k = 0;
     do
@@ -18,13 +23,13 @@ void tour(vector<vector<int>> &a, int i, int x, int y, bool &q)
         q1 = false;
         u = x + X[k];
         v = y + Y[k];
-        if ((0 <= u) && (u < n) && (0 <= v) && (v < n) && (a[u][v] == 0))
+        if (isValid(a, n, 0, u, v))
         {
             a[u][v] = i;
 
             if (i < n * n)
             {
-                tour(a, i + 1, u, v, q1);
+                tour(a, n, i + 1, u, v, q1);
                 if (q1 == false)
                     a[u][v] = 0;
             }
@@ -35,11 +40,11 @@ void tour(vector<vector<int>> &a, int i, int x, int y, bool &q)
     } while ((q1 == false) && (k < 8));
     q = q1;
 }
-// Truy vet
-void print(vector<vector<int>> a, int x, int y)
+
+void print(int a[][MAX], int n, int x, int y)
 {
-    int n = a.size(), cx = x, cy = y, step = 1;
-    vector<pair<int, int>> Res;
+    int cx = x, cy = y, step = 1;
+    std::vector<std::pair<int, int>> Res;
     Res.push_back({x, y});
     for (int i = 1; i <= n * n; i++)
     {
@@ -47,7 +52,7 @@ void print(vector<vector<int>> a, int x, int y)
         for (int j = 0; j < 8; j++)
         {
             int nx = cx + X[j], ny = cy + Y[j];
-            if ((0 <= nx) && (nx < n) && (0 <= ny) && (ny < n) && a[nx][ny] == i + 1)
+            if (isValid(a, n, i + 1, nx, ny))
             {
                 cx = nx;
                 cy = ny;
@@ -58,34 +63,37 @@ void print(vector<vector<int>> a, int x, int y)
     }
     if (step < n * n)
     {
-        cout << "Can't solve";
+        std::cout << "Can't solve";
         exit(0);
     }
     else
     {
         for (int i = 0; i < Res.size(); i++)
         {
-            cout << i + 1 << " :(" << Res[i].first << ", " << Res[i].second << ")\n";
+            std::cout << i + 1 << " :(" << Res[i].first << ", " << Res[i].second << ")\n";
         }
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++) // you can delete this loop if it's unnecessary
         {
             for (int j = 0; j < n; j++)
-                cout << setw(4) << a[i][j];
-            cout << endl;
+                std::cout << std::setw(4) << a[i][j];
+            std::cout << std::endl;
         }
     }
 }
 int main()
 {
     int n, x, y, step = 2;
-    cout << "matrix(NxN): ";
-    cin >> n;
-    cout << "Start position\nx: ";cin >> x;
-    cout << "y: ";cin >> y;
-    vector<vector<int>> array(n, vector<int>(n));
+    int array[MAX][MAX];
+    memset(array, 0, sizeof(array));
+    std::cout << "matrix(NxN): ";
+    std::cin >> n;
+    std::cout << "Start position\nx: ";
+    std::cin >> x;
+    std::cout << "y: ";
+    std::cin >> y;
     bool q = false;
     array[x][y] = 1;
-    tour(array, step, x, y, q);
-    print(array, x, y);
+    tour(array, n, step, x, y, q);
+    print(array, n, x, y);
     return 0;
 }
