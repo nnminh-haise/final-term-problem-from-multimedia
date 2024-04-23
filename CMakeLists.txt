@@ -1,21 +1,34 @@
+#=======================================================================================================================
+# Preamble
+#=======================================================================================================================
 cmake_minimum_required(VERSION 3.10)
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
 
+#=======================================================================================================================
 # Project Name
+#=======================================================================================================================
 project(FinalTermProject)
 
-# Set C++ Standard
+
+#=======================================================================================================================
+# Set C/C++ compiler version
+#=======================================================================================================================
 set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED True)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_GENERATOR_PLATFORM x64)
+set(CMAKE_CXX_EXTENSIONS OFF)
+set(IGNORE_ME ${CMAKE_C_COMPILER}) # Suppress CMake warning message
 
-# Add executable
-add_executable(StudentApp
-    src/main.cpp
-    src/model/student.cpp
-)
-
-add_executable(Task2.1 src/2.1/main.cpp)
-
-# Set include directories
-target_include_directories(StudentApp PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-target_include_directories(Task2.1 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+#=======================================================================================================================
+# Output Directories.
+#=======================================================================================================================
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/output)
+#=======================================================================================================================
+# Add project subdirectories
+#=======================================================================================================================
+add_subdirectory(src/problem-1/include/OpenXLSX) 
+add_subdirectory(src)
 

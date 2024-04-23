@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\src\cstdio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\src\cstdlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\src\filebuf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\src\iostream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\src\stat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\args.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\config.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\convert.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\cstdio.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\cstdlib.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\detail\convert.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\detail\is_path.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\detail\is_string_container.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\detail\utf.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\filebuf.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\filesystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\fstream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\iostream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\replacement.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\stackstring.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\stat.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\utf\convert.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\utf\utf.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\utf8_codecvt.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\include\nowide\windows.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\final-term-problem-from-multimedia\src\problem-1\external\nowide\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{FBD1271B-7A02-31FE-9913-07C694EFE17B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{C65FF197-8307-3399-A030-3C4442973A6B}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

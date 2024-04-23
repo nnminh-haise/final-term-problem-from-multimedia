@@ -1,4 +1,13 @@
-D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/StudentApp.dir
-D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/Task2.1.dir
-D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/ALL_BUILD.dir
-D:/Code/C++/final-term-problem-from-multimedia/build/CMakeFiles/ZERO_CHECK.dir
+D:/final-term-problem-from-multimedia/build/CMakeFiles/INSTALL.dir
+D:/final-term-problem-from-multimedia/build/CMakeFiles/ALL_BUILD.dir
+D:/final-term-problem-from-multimedia/build/CMakeFiles/ZERO_CHECK.dir
+D:/final-term-problem-from-multimedia/build/src/problem-1/include/OpenXLSX/CMakeFiles/OpenXLSX.dir
+D:/final-term-problem-from-multimedia/build/src/problem-1/include/OpenXLSX/CMakeFiles/INSTALL.dir
+D:/final-term-problem-from-multimedia/build/src/problem-1/include/OpenXLSX/CMakeFiles/ALL_BUILD.dir
+D:/final-term-problem-from-multimedia/build/src/CMakeFiles/Problem1.dir
+D:/final-term-problem-from-multimedia/build/src/CMakeFiles/Problem2.1.dir
+D:/final-term-problem-from-multimedia/build/src/CMakeFiles/INSTALL.dir
+D:/final-term-problem-from-multimedia/build/src/CMakeFiles/ALL_BUILD.dir
+D:/final-term-problem-from-multimedia/build/src/problem-1/external/nowide/CMakeFiles/nowide.dir
+D:/final-term-problem-from-multimedia/build/src/problem-1/external/nowide/CMakeFiles/INSTALL.dir
+D:/final-term-problem-from-multimedia/build/src/problem-1/external/nowide/CMakeFiles/ALL_BUILD.dir

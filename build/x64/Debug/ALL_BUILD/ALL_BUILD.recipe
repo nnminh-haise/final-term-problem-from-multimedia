@@ -2,16 +2,16 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Code\C++\final-term-problem-from-multimedia\build\x64\Debug\ZERO_CHECK</FullPath>
+      <FullPath>D:\final-term-problem-from-multimedia\build\x64\Debug\ZERO_CHECK</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\Code\C++\final-term-problem-from-multimedia\build\Debug\StudentApp.exe</FullPath>
+      <FullPath>D:\final-term-problem-from-multimedia\build\output\Debug\Problem1.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\Code\C++\final-term-problem-from-multimedia\build\Debug\Task2.1.exe</FullPath>
+      <FullPath>D:\final-term-problem-from-multimedia\build\output\Debug\Problem2.1.exe</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\Code\C++\final-term-problem-from-multimedia\build\x64\Debug\ALL_BUILD</FullPath>
+      <FullPath>D:\final-term-problem-from-multimedia\build\x64\Debug\ALL_BUILD</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
