@@ -36,67 +36,7 @@ void Data::refreshData(std::string path)
     checkId.clear();
     OpenXLSX::XLDocument doc;
     doc.open(path);
-    doc.saveAs("temp1.csv");
-    std::ofstream File("temp.csv");
     OpenXLSX::XLWorksheet wks = doc.workbook().worksheet("Sheet1");
-    for (unsigned int i = 2; i <= wks.rowCount(); i++)
-    {
-        // const std::string id = (wks.cell(i, 2).value().get<std::string>());
-        const std::string lastName = (wks.cell(i, 3).value().get<std::string>());
-        const std::string firstName = (wks.cell(i, 4).value().get<std::string>());
-        // const std::string classId = (wks.cell(i, 5).value().get<std::string>());
-        // const unsigned int grade = wks.cell(i, 6).value();
-        File << lastName << ',' << firstName << std::endl;
-    }
-    std::vector<std::vector<std::string>> newData;
-    std::ifstream f("temp.csv");
-    std::wbuffer_convert<std::codecvt_utf8<wchar_t>> conv(f.rdbuf());
-    std::wistream wf(&conv);
-    std::vector<std::string> TempData;
-    std::wstring text = L"";
-    // _setmode(_fileno(stdout), _O_WTEXT);
-    for (wchar_t c; wf.get(c);)
-        text = text + c;
-    std::wcout << text << std::endl;
-    std::string convertStr = ws2s(text);
-    // _setmode(_fileno(stdout), _O_TEXT);
-    std::cout << convertStr << std::endl;
-    std::stringstream ss(convertStr);
-    std::string tempString;
-    while (getline(ss, tempString, ','))
-    {
-        TempData.push_back(tempString);
-    }
-    newData.push_back(TempData);
-
-    for (auto i : newData)
-    {
-        for (auto j : i)
-        {
-            std::cout << j << ' ';
-        }
-        std::cout << std::endl;
-    }
-
-    // for (unsigned int i = 0; i < newData.size(); i++)
-    // {
-    //     const unsigned int index = i + 1;
-    //     const std::string id = newData[i][0];
-    //     const std::string lastName = newData[i][1];
-    //     const std::string firstName = newData[i][2];
-    //     const std::string classId = newData[i][3];
-    //     const unsigned int grade = std::stoi(newData[i][4]);
-    //     Student *student = new Student();
-    //     student->setIndex(index);
-    //     student->setStudentId(id);
-    //     student->setLastName(lastName);
-    //     student->setFirstName(firstName);
-    //     student->setClassId(classId);
-    //     student->setGrade(grade);
-    //     Students.push_back(student);
-    //     checkId[id] = true;
-    // }
-
     for (unsigned int i = 2; i <= wks.rowCount(); i++)
     {
         const unsigned int index = wks.cell(i, 1).value();
