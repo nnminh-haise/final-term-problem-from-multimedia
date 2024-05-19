@@ -2,10 +2,13 @@
 #define __STUDENT__
 
 #include <string>
+#include <iostream>
 
 class Student
 {
 private:
+    int Index;
+
     std::string studentId;
 
     std::string firstName;
@@ -17,6 +20,8 @@ private:
     int grade;
 
 public:
+    int getIndex();
+
     std::string getStudentId();
 
     std::string getFirstName();
@@ -30,6 +35,8 @@ public:
     std::string getClassId();
 
     int getGrade();
+
+    void setIndex(int Index);
 
     void setStudentId(std::string id);
 

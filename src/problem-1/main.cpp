@@ -2,6 +2,7 @@
 #include <windows.h>
 #include "model/data.h"
 
+
 enum __MAIN_MENU__
 {
     OPTION_PRINT_LIST = 1,
@@ -26,7 +27,7 @@ enum __BY__
 int main()
 {
     int lowGrade = 5, highGrade = 8;
-    std::string path = "data/DSSV.xlsx";
+    std::string path = "DSSV.xlsx";
     std::string Menu = "1. Print list of students\n2. Find student (and reverse name student) \n3. Add new student to the list\n4. Remove student from the list\n5. Print list of students with lowest grade(< 5)\n6. Print list of students with highest grade(>= 8)\n7. Sort(use bubble sort)\n8. Exit\nOption: ",
                 Menu1 = " student by:\n1. ID\n2. Last name\n3. First name\n4. Class id\n5. Grade\nOption: ",
                 invalidOption = "Invalid option. Please type again!\n";
@@ -128,6 +129,7 @@ int main()
         }
         case OPTION_REMOVE_FROM_LIST:
         {
+
             break;
         }
         case OPTION_PRINT_LOWEST_GRADE:

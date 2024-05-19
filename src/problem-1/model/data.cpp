@@ -2,6 +2,14 @@
 
 Console console;
 
+std::string ws2s(const std::wstring wstr)
+{
+    using convert_typeX = std::codecvt_utf8<wchar_t>;
+    std::wstring_convert<convert_typeX, wchar_t> converterX;
+
+    return converterX.to_bytes(wstr);
+}
+
 Data::Data(std::string path)
 {
     refreshData(path);
@@ -19,22 +27,86 @@ bool Data::existId(std::string id)
 
 void Data::refreshData(std::string path)
 {
+    // #ifdef _WIN32
+    //     SetConsoleOutputCP(CP_UTF8);
+    //     SetConsoleCP(CP_UTF8);
+    // #endif
+    // std::locale::global(std::locale("en_US.UTF-8"));
     Students.clear();
     checkId.clear();
     OpenXLSX::XLDocument doc;
     doc.open(path);
+    doc.saveAs("temp1.csv");
+    std::ofstream File("temp.csv");
     OpenXLSX::XLWorksheet wks = doc.workbook().worksheet("Sheet1");
-    // std::cout << "Column: " << wks.columnCount() << "\nRow: " << wks.rowCount() << std::endl;
     for (unsigned int i = 2; i <= wks.rowCount(); i++)
     {
-        // const unsigned int index = wks.cell(i, 1).value(); // Index of student, we dont need it because we use index of array (hehe)
+        // const std::string id = (wks.cell(i, 2).value().get<std::string>());
+        const std::string lastName = (wks.cell(i, 3).value().get<std::string>());
+        const std::string firstName = (wks.cell(i, 4).value().get<std::string>());
+        // const std::string classId = (wks.cell(i, 5).value().get<std::string>());
+        // const unsigned int grade = wks.cell(i, 6).value();
+        File << lastName << ',' << firstName << std::endl;
+    }
+    std::vector<std::vector<std::string>> newData;
+    std::ifstream f("temp.csv");
+    std::wbuffer_convert<std::codecvt_utf8<wchar_t>> conv(f.rdbuf());
+    std::wistream wf(&conv);
+    std::vector<std::string> TempData;
+    std::wstring text = L"";
+    // _setmode(_fileno(stdout), _O_WTEXT);
+    for (wchar_t c; wf.get(c);)
+        text = text + c;
+    std::wcout << text << std::endl;
+    std::string convertStr = ws2s(text);
+    // _setmode(_fileno(stdout), _O_TEXT);
+    std::cout << convertStr << std::endl;
+    std::stringstream ss(convertStr);
+    std::string tempString;
+    while (getline(ss, tempString, ','))
+    {
+        TempData.push_back(tempString);
+    }
+    newData.push_back(TempData);
+
+    for (auto i : newData)
+    {
+        for (auto j : i)
+        {
+            std::cout << j << ' ';
+        }
+        std::cout << std::endl;
+    }
+
+    // for (unsigned int i = 0; i < newData.size(); i++)
+    // {
+    //     const unsigned int index = i + 1;
+    //     const std::string id = newData[i][0];
+    //     const std::string lastName = newData[i][1];
+    //     const std::string firstName = newData[i][2];
+    //     const std::string classId = newData[i][3];
+    //     const unsigned int grade = std::stoi(newData[i][4]);
+    //     Student *student = new Student();
+    //     student->setIndex(index);
+    //     student->setStudentId(id);
+    //     student->setLastName(lastName);
+    //     student->setFirstName(firstName);
+    //     student->setClassId(classId);
+    //     student->setGrade(grade);
+    //     Students.push_back(student);
+    //     checkId[id] = true;
+    // }
+
+    for (unsigned int i = 2; i <= wks.rowCount(); i++)
+    {
+        const unsigned int index = wks.cell(i, 1).value();
         const std::string id = (wks.cell(i, 2).value().get<std::string>());
         const std::string lastName = (wks.cell(i, 3).value().get<std::string>());
         const std::string firstName = (wks.cell(i, 4).value().get<std::string>());
         const std::string classId = (wks.cell(i, 5).value().get<std::string>());
         const unsigned int grade = wks.cell(i, 6).value();
-        // std::cout << id << '\t' << lastName << '\t' << firstName << '\t' << classId << '\t' << mark << std::endl;
         Student *student = new Student();
+        student->setIndex(index);
         student->setStudentId(id);
         student->setLastName(lastName);
         student->setFirstName(firstName);
@@ -43,6 +115,7 @@ void Data::refreshData(std::string path)
         Students.push_back(student);
         checkId[id] = true;
     }
+
     doc.close();
 }
 
@@ -72,9 +145,29 @@ void Data::addData(std::string path, Student *student)
     }
 }
 
-void Data::Remove(std::string path, Student *student)
+void Data::Remove(std::string path, std::string ID)
 {
-    
+    if (existId(ID))
+    {
+        Student *student = (findStudentById(ID)[0]);
+        OpenXLSX::XLDocument doc;
+        doc.open(path);
+        OpenXLSX::XLWorksheet wks = doc.workbook().sheet(1);
+        for (int i = student->getIndex() + 1; i <= getNumberOfStudent() + 1; i++)
+        {
+            wks.cell((uint32_t)(i), 2).value() = wks.cell((uint32_t)(i + 1), 2).value();
+            wks.cell((uint32_t)(i), 3).value() = wks.cell((uint32_t)(i + 1), 3).value();
+            wks.cell((uint32_t)(i), 4).value() = wks.cell((uint32_t)(i + 1), 4).value();
+            wks.cell((uint32_t)(i), 5).value() = wks.cell((uint32_t)(i + 1), 5).value();
+            wks.cell((uint32_t)(i), 6).value() = wks.cell((uint32_t)(i + 1), 6).value();
+        }
+        wks.cell((uint32_t)(wks.rowCount()), 1).value() = "";
+        refreshData(path);
+    }
+    else
+    {
+        console.printWithColor("\nData source: The student's id is not exist\n", LIGHT_RED);
+    }
 }
 
 std::vector<Student *> Data::getData()
@@ -104,61 +197,76 @@ void Data::printStudentHigherThan(int grade)
     }
 }
 
-void Data::findStudentById(std::string ID)
+std::vector<Student *> Data::findStudentById(std::string ID)
 {
+    std::vector<Student *> Res;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getStudentId() == ID)
         {
             printStudent(Students[i]);
-            // std::cout << "\t";
-            // Students[i]->getReverseName();
+            Res.push_back(Students[i]);
+            std::cout << "\t";
+            Students[i]->getReverseName();
         }
     }
+    return Res;
 }
 
-void Data::findStudentByLastName(std::string lastName)
+std::vector<Student *> Data::findStudentByLastName(std::string lastName)
 {
+    std::vector<Student *> Res;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getLastName() == lastName)
         {
             printStudent(Students[i]);
+            Res.push_back(Students[i]);
         }
     }
+    return Res;
 }
 
-void Data::findStudentbyFirstName(std::string firstName)
+std::vector<Student *> Data::findStudentbyFirstName(std::string firstName)
 {
+    std::vector<Student *> Res;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getFirstName() == firstName)
         {
             printStudent(Students[i]);
+            Res.push_back(Students[i]);
         }
     }
+    return Res;
 }
 
-void Data::findStudentbyClassId(std::string classId)
+std::vector<Student *> Data::findStudentbyClassId(std::string classId)
 {
+    std::vector<Student *> Res;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getClassId() == classId)
         {
             printStudent(Students[i]);
+            Res.push_back(Students[i]);
         }
     }
+    return Res;
 }
 
-void Data::findStudentbyGrade(int grade)
+std::vector<Student *> Data::findStudentbyGrade(int grade)
 {
+    std::vector<Student *> Res;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getGrade() == grade)
         {
             printStudent(Students[i]);
+            Res.push_back(Students[i]);
         }
     }
+    return Res;
 }
 
 void Data::sortStudentById()
@@ -267,10 +375,11 @@ void Data::sortStudentbyGrade()
 void Data::printStudent(Student *student)
 {
     // I use nowide to print out UTF-8 but it is not a radical solution to solve the problem string can't get UTF-8 character.
-    nowide::cout << student->getStudentId() << ", ";
-    nowide::cout << student->getLastName() << ", ";
-    nowide::cout << student->getFirstName() << ", ";
-    nowide::cout << student->getClassId() << ", ";
-    nowide::cout << student->getGrade();
-    nowide::cout << std::endl;
+    std::cout << student->getStudentId() << ", ";
+    std::cout << student->getLastName() << ", ";
+    std::cout << student->getFirstName() << ", ";
+    std::cout << student->getClassId() << ", ";
+    std::cout << student->getGrade();
+    std::cout << "\tSize: " << student->getAllName().size();
+    std::cout << std::endl;
 }

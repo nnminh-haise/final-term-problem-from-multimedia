@@ -3,12 +3,19 @@
 
 #include <OpenXLSX.hpp>
 #include <nowide/iostream.hpp>
+#include <nowide/fstream.hpp>
 #include <algorithm>
 #include <iomanip>
 #include <vector>
 #include <locale>
 #include <map>
 #include <set>
+#include <codecvt>
+#include <sstream>
+#ifdef _WIN32
+#include <fcntl.h>
+#include <io.h>
+#endif
 #include "student.h"
 #include "output.h"
 
@@ -62,7 +69,7 @@ public:
 
     void addData(std::string path, Student *student);
 
-    void Remove(std::string path, Student *student);
+    void Remove(std::string path, std::string ID);
 
     std::vector<Student *> getData();
 
@@ -72,15 +79,15 @@ public:
 
     void printStudentHigherThan(int grade);
 
-    void findStudentById(std::string ID);
+    std::vector<Student *> findStudentById(std::string ID);
 
-    void findStudentByLastName(std::string lastName);
+    std::vector<Student *> findStudentByLastName(std::string lastName);
 
-    void findStudentbyFirstName(std::string firstName);
+    std::vector<Student *> findStudentbyFirstName(std::string firstName);
 
-    void findStudentbyClassId(std::string classId);
+    std::vector<Student *> findStudentbyClassId(std::string classId);
 
-    void findStudentbyGrade(int grade);
+    std::vector<Student *> findStudentbyGrade(int grade);
 
     void sortStudentById();
 

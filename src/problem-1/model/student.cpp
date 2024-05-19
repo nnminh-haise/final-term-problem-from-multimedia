@@ -1,5 +1,10 @@
 #include "student.h"
 
+int Student::getIndex()
+{
+    return this->Index;
+}
+
 std::string Student::getStudentId()
 {
     return this->studentId;
@@ -24,7 +29,8 @@ std::string Student::getReverseName()
 {
     std::string name = getAllName();
     std::string reverseName = "";
-    for (size_t i = getAllName().size() - 1; i >= 0; i--)
+    std::cout << "length: " << getAllName().size() - 1 << std::endl;
+    for (int i = getAllName().size() - 1; i >= 0; i--)
     {
         reverseName += name[i];
     }
@@ -39,6 +45,11 @@ std::string Student::getClassId()
 int Student::getGrade()
 {
     return this->grade;
+}
+
+void Student::setIndex(int Index)
+{
+    this->Index = Index;
 }
 
 void Student::setStudentId(std::string studentId)

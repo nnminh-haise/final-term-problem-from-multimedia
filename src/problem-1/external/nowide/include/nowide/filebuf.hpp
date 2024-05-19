@@ -376,8 +376,8 @@ namespace nowide {
 #pragma clang diagnostic ignored "-Wtautological-constant-out-of-range-compare"
 #endif
             // coverity[result_independent_of_operands]
-            if(off > std::numeric_limits<std::streamoff>::max())
-                return false;
+            // if(off > std::numeric_limits<std::streamoff>::max())
+            //     return false;
 #if defined(__clang__)
 #pragma clang diagnostic pop
 #endif

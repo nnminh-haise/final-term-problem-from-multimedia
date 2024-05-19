@@ -1,6 +1,6 @@
-#=======================================================================================================================
+# =======================================================================================================================
 # Preamble
-#=======================================================================================================================
+# =======================================================================================================================
 cmake_minimum_required(VERSION 3.15 FATAL_ERROR)
 set(OPENXLSX_MAJOR_VERSION 0)
 set(OPENXLSX_MINOR_VERSION 3)
@@ -11,33 +11,33 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-#=======================================================================================================================
+# =======================================================================================================================
 # Set project metadata
-#=======================================================================================================================
+# =======================================================================================================================
 set(OPENXLSX_PROJECT_VENDOR "Kenneth Troldal Balslev")
 set(OPENXLSX_PROJECT_CONTACT "kenneth.balslev@gmail.com")
 set(OPENXLSX_PROJECT_URL "https://github.com/troldal/OpenXLSX")
 set(PROJECT_DESCRIPTION "A C++17 library for reading, writing and modifying Excel spreadsheets")
 
-#=======================================================================================================================
+# =======================================================================================================================
 # Set C/C++ compiler version
-#=======================================================================================================================
+# =======================================================================================================================
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(IGNORE_ME ${CMAKE_C_COMPILER}) # Suppress CMake warning message
 
-#=======================================================================================================================
+# =======================================================================================================================
 # Add build options
-#=======================================================================================================================
+# =======================================================================================================================
 option(OPENXLSX_COMPACT_MODE "Build library in compact mode (slower, but uses less memory)" OFF)
 set(OPENXLSX_LIBRARY_TYPE "STATIC" CACHE STRING "Set the library type to SHARED or STATIC")
 
-#=======================================================================================================================
+# =======================================================================================================================
 # EXTERNAL LIBRARIES
-#   Define external libraries used by OpenXLSX. The libraries (Zippy, PugiXML, and NoWide) are header-only, so
-#   INTERFACE libraries should be defined.
-#=======================================================================================================================
+# Define external libraries used by OpenXLSX. The libraries (Zippy, PugiXML, and NoWide) are header-only, so
+# INTERFACE libraries should be defined.
+# =======================================================================================================================
 add_library(NoWide INTERFACE IMPORTED)
 target_include_directories(NoWide SYSTEM INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/external/nowide/>)
 
@@ -47,15 +47,15 @@ target_include_directories(Zippy SYSTEM INTERFACE $<BUILD_INTERFACE:${CMAKE_CURR
 add_library(PugiXML INTERFACE IMPORTED)
 target_include_directories(PugiXML SYSTEM INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/external/pugixml/>)
 
-if (${OPENXLSX_COMPACT_MODE})
-    target_compile_definitions(PugiXML INTERFACE PUGIXML_COMPACT)
-endif ()
+if(${OPENXLSX_COMPACT_MODE})
+        target_compile_definitions(PugiXML INTERFACE PUGIXML_COMPACT)
+endif()
 
-#=======================================================================================================================
+# =======================================================================================================================
 # COMPILER FEATURES
-#   Some older C++17 compilers don't support the char_conv features. If the compiler doesn't support it,
-#   a less optimal work-around will be used.
-#=======================================================================================================================
+# Some older C++17 compilers don't support the char_conv features. If the compiler doesn't support it,
+# a less optimal work-around will be used.
+# =======================================================================================================================
 include(CheckCXXSourceCompiles)
 check_cxx_source_compiles("
                           #include <array>
@@ -73,14 +73,14 @@ check_cxx_source_compiles("
                                   return 0;
                           }" CHARCONV_RESULT)
 
-if (CHARCONV_RESULT)
-    add_compile_definitions(CHARCONV_ENABLED)
-endif ()
+if(CHARCONV_RESULT)
+        add_compile_definitions(CHARCONV_ENABLED)
+endif()
 
-#=======================================================================================================================
+# =======================================================================================================================
 # PROJECT FILES
-#   List of project source files
-#=======================================================================================================================
+# List of project source files
+# =======================================================================================================================
 set(OPENXLSX_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/sources/XLCell.cpp
         ${CMAKE_CURRENT_LIST_DIR}/sources/XLCellIterator.cpp
@@ -103,66 +103,64 @@ set(OPENXLSX_SOURCES
         ${CMAKE_CURRENT_LIST_DIR}/sources/XLXmlData.cpp
         ${CMAKE_CURRENT_LIST_DIR}/sources/XLXmlFile.cpp
         ${CMAKE_CURRENT_LIST_DIR}/sources/XLZipArchive.cpp
-        )
+)
 
-
-#=======================================================================================================================
+# =======================================================================================================================
 # STATIC AND SHARED LIBRARY
-#   Check that the input is valid
-#=======================================================================================================================
+# Check that the input is valid
+# =======================================================================================================================
 if(NOT ${OPENXLSX_LIBRARY_TYPE} STREQUAL "STATIC" AND NOT ${OPENXLSX_LIBRARY_TYPE} STREQUAL "SHARED")
-    message( FATAL_ERROR "Invalid library type. Must be SHARED or STATIC." )
+        message(FATAL_ERROR "Invalid library type. Must be SHARED or STATIC.")
 endif()
 
-#=======================================================================================================================
+# =======================================================================================================================
 # STATIC LIBRARY
-#   Define the static library
-#=======================================================================================================================
-if (${OPENXLSX_LIBRARY_TYPE} STREQUAL "STATIC")
-    add_library(OpenXLSX STATIC "")
-    add_library(OpenXLSX::OpenXLSX ALIAS OpenXLSX)
-    target_sources(OpenXLSX PRIVATE ${OPENXLSX_SOURCES})
-    target_include_directories(OpenXLSX
-            PUBLIC
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/headers>
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)     # For export header
-    target_link_libraries(OpenXLSX
-            PRIVATE
-            $<BUILD_INTERFACE:Zippy>
-            $<BUILD_INTERFACE:PugiXML>
-            $<BUILD_INTERFACE:NoWide>)
+# Define the static library
+# =======================================================================================================================
+if(${OPENXLSX_LIBRARY_TYPE} STREQUAL "STATIC")
+        add_library(OpenXLSX STATIC "")
+        add_library(OpenXLSX::OpenXLSX ALIAS OpenXLSX)
+        target_sources(OpenXLSX PRIVATE ${OPENXLSX_SOURCES})
+        target_include_directories(OpenXLSX
+                PUBLIC
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/headers>
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>) # For export header
+        target_link_libraries(OpenXLSX
+                PRIVATE
+                $<BUILD_INTERFACE:Zippy>
+                $<BUILD_INTERFACE:PugiXML>
+                $<BUILD_INTERFACE:NoWide>)
 
-    target_compile_definitions(OpenXLSX PUBLIC OPENXLSX_STATIC_DEFINE)
+        target_compile_definitions(OpenXLSX PUBLIC OPENXLSX_STATIC_DEFINE)
+endif()
 
-endif ()
-
-#=======================================================================================================================
+# =======================================================================================================================
 # SHARED LIBRARY
-#   Define the shared library
-#=======================================================================================================================
-if (${OPENXLSX_LIBRARY_TYPE} STREQUAL "SHARED")
-    add_library(OpenXLSX SHARED "")
-    add_library(OpenXLSX::OpenXLSX ALIAS OpenXLSX)
-    target_sources(OpenXLSX PRIVATE ${OPENXLSX_SOURCES})
-    target_include_directories(OpenXLSX
-            PUBLIC
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/headers>
-            $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>)     # For export header
-    target_link_libraries(OpenXLSX
-            PRIVATE
-            $<BUILD_INTERFACE:Zippy>
-            $<BUILD_INTERFACE:PugiXML>
-            $<BUILD_INTERFACE:NoWide>)
+# Define the shared library
+# =======================================================================================================================
+if(${OPENXLSX_LIBRARY_TYPE} STREQUAL "SHARED")
+        add_library(OpenXLSX SHARED "")
+        add_library(OpenXLSX::OpenXLSX ALIAS OpenXLSX)
+        target_sources(OpenXLSX PRIVATE ${OPENXLSX_SOURCES})
+        target_include_directories(OpenXLSX
+                PUBLIC
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}>
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/headers>
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}>) # For export header
+        target_link_libraries(OpenXLSX
+                PRIVATE
+                $<BUILD_INTERFACE:Zippy>
+                $<BUILD_INTERFACE:PugiXML>
+                $<BUILD_INTERFACE:NoWide>)
 
-    # Enable Link-Time Optimization (LTO)
-    include(CheckIPOSupported)
-    check_ipo_supported(RESULT result OUTPUT output)
-    if (result)
-        set_property(TARGET OpenXLSX PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-    endif ()
+        # Enable Link-Time Optimization (LTO)
+        include(CheckIPOSupported)
+        check_ipo_supported(RESULT result OUTPUT output)
 
+        if(result)
+                set_property(TARGET OpenXLSX PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+        endif()
 endif()
 
 # Generate export header
@@ -173,10 +171,10 @@ generate_export_header(OpenXLSX
         EXPORT_MACRO_NAME OPENXLSX_EXPORT
         NO_EXPORT_MACRO_NAME OPENXLSX_HIDDEN)
 
-#=======================================================================================================================
+# =======================================================================================================================
 # COMPILER FLAGS
-#   Set compiler debug flags for GCC, Clang and MSVC.
-#=======================================================================================================================
+# Set compiler debug flags for GCC, Clang and MSVC.
+# =======================================================================================================================
 list(APPEND OPENXLSX_DEBUG_FLAGS_GNU
         "-Wmisleading-indentation"
         "-Wduplicated-cond"
@@ -226,23 +224,23 @@ list(APPEND OPENXLSX_RELEASE_FLAGS_MSVC
         "/wd4251"
         "/wd4275")
 
-if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Debug>:${OPENXLSX_DEBUG_FLAGS_GNU}>)
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
+        target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Debug>:${OPENXLSX_DEBUG_FLAGS_GNU}>)
 
-elseif (("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR
-("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang") OR
-("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
-    target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Debug>:${OPENXLSX_DEBUG_FLAGS_GNUCLANG}>)
+elseif(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR
+        ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang") OR
+        ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU"))
+        target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Debug>:${OPENXLSX_DEBUG_FLAGS_GNUCLANG}>)
 
-elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-    string(REGEX REPLACE "/W[3|4]" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-    target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Debug>:${OPENXLSX_DEBUG_FLAGS_MSVC}>)
-    target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Release>:${OPENXLSX_RELEASE_FLAGS_MSVC}>)
-endif ()
+elseif("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
+        string(REGEX REPLACE "/W[3|4]" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+        target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Debug>:${OPENXLSX_DEBUG_FLAGS_MSVC}>)
+        target_compile_options(OpenXLSX PRIVATE $<$<CONFIG:Release>:${OPENXLSX_RELEASE_FLAGS_MSVC}>)
+endif()
 
-#=======================================================================================================================
+# =======================================================================================================================
 # Install
-#=======================================================================================================================
+# =======================================================================================================================
 # Some basic stuff we'll need in this section
 include(GNUInstallDirs)
 include(CMakePackageConfigHelpers)
@@ -303,7 +301,7 @@ install(
 configure_file(OpenXLSXConfig.cmake
         "${CMAKE_CURRENT_BINARY_DIR}/OpenXLSX/OpenXLSXConfig.cmake"
         COPYONLY
-        )
+)
 
 # Package export targets
 export(
@@ -317,6 +315,3 @@ install(
         NAMESPACE OpenXLSX::
         DESTINATION ${ConfigPackageLocation}
 )
-
-
-
