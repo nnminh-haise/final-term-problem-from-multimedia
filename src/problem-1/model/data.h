@@ -46,7 +46,7 @@ void BBsort(std::vector<value> &Array)
     {
         for (int j = i + 1; j < Array.size(); j++)
         {
-            if (Array[i] < Array[j])
+            if (Array[i] > Array[j])
                 swap(Array[i], Array[j]);
         }
     }

@@ -133,16 +133,17 @@ Here is the link to the `student.cpp` file: [Link](./src/problem-1/model/student
 
 ### Problem 1
 
-| Feature                                                | STATUS  | Contributor       |
-| :----------------------------------------------------- | :------ | :---------------- |
-| 0 - Student class                                      | DONE    | Nguyen Nhat Minh  |
-| 1 - Import data from excel file (.xlsx) using OpenXLSX | DONE    | Nguyen Thanh Vinh |
-| 2 - Print list of students                             | DONE    | Nguyen Thanh Vinh |
-| 3 - Add student to the list                            | DONE    | Nguyen Thanh Vinh |
-| 4 - Remove student from the list                       | TESTING | Nguyen Thanh Vinh |
-| 5 - Find student and reverse name                      | DONE    | Nguyen Thanh Vinh |
-| 6 - Print list of students with highest(lowest) grade  | DONE    | Nguyen thanh Vinh |
-| 7 - Sort list (bubble sort)                            | TESTING | Nguyen thanh Vinh |
+| Feature                                                | STATUS     | FILE           | Contributor       |
+| :----------------------------------------------------- | :--------- | :------------- | :---------------- |
+| 0 - Student class                                      | DONE       |                | Nguyen Nhat Minh  |
+| 1 - Import data from excel file (.xlsx) using OpenXLSX | DONE       |                | Nguyen Thanh Vinh |
+| 1.1- Read UTF-8 data                                   | BUG        | model/data.cpp | Nguyen Thanh Vinh |
+| 2 - Print list of students                             | DONE       |                | Nguyen Thanh Vinh |
+| 3 - Add student to the list                            | DONE       |                | Nguyen Thanh Vinh |
+| 4 - Remove student from the list                       | BUG        | model/data.cpp | Nguyen Thanh Vinh |
+| 5 - Find student and reverse name                      | DONE (3/5) | model/data.cpp | Nguyen Thanh Vinh |
+| 6 - Print list of students with highest(lowest) grade  | DONE       |                | Nguyen thanh Vinh |
+| 7 - Sort list (bubble sort)                            | DONE (3/5) | model/data.cpp | Nguyen thanh Vinh |
 
 ### Problem 2
 

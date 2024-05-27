@@ -2,7 +2,6 @@
 #include <windows.h>
 #include "model/data.h"
 
-
 enum __MAIN_MENU__
 {
     OPTION_PRINT_LIST = 1,
@@ -129,7 +128,10 @@ int main()
         }
         case OPTION_REMOVE_FROM_LIST:
         {
-
+            std::string ID;
+            std::cout << "Input ID you want to remove: ";
+            std::cin >> ID;
+            students.Remove(path, ID);
             break;
         }
         case OPTION_PRINT_LOWEST_GRADE:

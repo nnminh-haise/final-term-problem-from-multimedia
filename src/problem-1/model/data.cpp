@@ -2,14 +2,6 @@
 
 Console console;
 
-std::string ws2s(const std::wstring wstr)
-{
-    using convert_typeX = std::codecvt_utf8<wchar_t>;
-    std::wstring_convert<convert_typeX, wchar_t> converterX;
-
-    return converterX.to_bytes(wstr);
-}
-
 Data::Data(std::string path)
 {
     refreshData(path);
@@ -27,16 +19,12 @@ bool Data::existId(std::string id)
 
 void Data::refreshData(std::string path)
 {
-    // #ifdef _WIN32
-    //     SetConsoleOutputCP(CP_UTF8);
-    //     SetConsoleCP(CP_UTF8);
-    // #endif
-    // std::locale::global(std::locale("en_US.UTF-8"));
     Students.clear();
     checkId.clear();
     OpenXLSX::XLDocument doc;
     doc.open(path);
-    OpenXLSX::XLWorksheet wks = doc.workbook().worksheet("Sheet1");
+    OpenXLSX::XLWorksheet wks = doc.workbook().sheet(1);
+    nowide::cout << wks.rowCount() << std::endl;
     for (unsigned int i = 2; i <= wks.rowCount(); i++)
     {
         const unsigned int index = wks.cell(i, 1).value();
@@ -44,7 +32,7 @@ void Data::refreshData(std::string path)
         const std::string lastName = (wks.cell(i, 3).value().get<std::string>());
         const std::string firstName = (wks.cell(i, 4).value().get<std::string>());
         const std::string classId = (wks.cell(i, 5).value().get<std::string>());
-        const unsigned int grade = wks.cell(i, 6).value();
+        const int64_t grade = wks.cell(i, 6).value().get<int64_t>();
         Student *student = new Student();
         student->setIndex(index);
         student->setStudentId(id);
@@ -93,15 +81,26 @@ void Data::Remove(std::string path, std::string ID)
         OpenXLSX::XLDocument doc;
         doc.open(path);
         OpenXLSX::XLWorksheet wks = doc.workbook().sheet(1);
-        for (int i = student->getIndex() + 1; i <= getNumberOfStudent() + 1; i++)
+        wks.row((student->getIndex() + 1)).values().clear();
+
+        for (int i = student->getIndex() + 1; i <= getNumberOfStudent() + 1; i++) // BUG: crash program
         {
-            wks.cell((uint32_t)(i), 2).value() = wks.cell((uint32_t)(i + 1), 2).value();
-            wks.cell((uint32_t)(i), 3).value() = wks.cell((uint32_t)(i + 1), 3).value();
-            wks.cell((uint32_t)(i), 4).value() = wks.cell((uint32_t)(i + 1), 4).value();
-            wks.cell((uint32_t)(i), 5).value() = wks.cell((uint32_t)(i + 1), 5).value();
-            wks.cell((uint32_t)(i), 6).value() = wks.cell((uint32_t)(i + 1), 6).value();
+            if (i == getNumberOfStudent() + 1)
+            {
+                // wks.row((uint32_t)(i)).values() = wks.row((uint32_t)(0)).values();
+
+                wks.row((uint32_t)(i)).values().clear();
+            }
+            else
+            {
+                wks.row((uint32_t)(i)).values() = wks.row((uint32_t)(i + 1)).values();
+                wks.cell((uint32_t)(i), 1).value() = i - 1;
+            }
         }
-        wks.cell((uint32_t)(wks.rowCount()), 1).value() = "";
+        doc.save();
+        doc.close();
+        // nowide::cout << "Testing" << std::endl;
+        nowide::cout << "Remove successfully" << std::endl;
         refreshData(path);
     }
     else
@@ -146,8 +145,8 @@ std::vector<Student *> Data::findStudentById(std::string ID)
         {
             printStudent(Students[i]);
             Res.push_back(Students[i]);
-            std::cout << "\t";
-            Students[i]->getReverseName();
+            // std::cout << "\t";
+            // Students[i]->getReverseName();
         }
     }
     return Res;
@@ -315,11 +314,12 @@ void Data::sortStudentbyGrade()
 void Data::printStudent(Student *student)
 {
     // I use nowide to print out UTF-8 but it is not a radical solution to solve the problem string can't get UTF-8 character.
-    std::cout << student->getStudentId() << ", ";
-    std::cout << student->getLastName() << ", ";
-    std::cout << student->getFirstName() << ", ";
-    std::cout << student->getClassId() << ", ";
-    std::cout << student->getGrade();
-    std::cout << "\tSize: " << student->getAllName().size();
-    std::cout << std::endl;
+    nowide::cout << student->getIndex() << ", ";
+    nowide::cout << student->getStudentId() << ", ";
+    nowide::cout << student->getLastName() << ", ";
+    nowide::cout << student->getFirstName() << ", ";
+    nowide::cout << student->getClassId() << ", ";
+    nowide::cout << student->getGrade();
+    // std::cout << "\tSize: " << student->getAllName().size();
+    nowide::cout << std::endl;
 }
