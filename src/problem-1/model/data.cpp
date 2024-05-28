@@ -24,24 +24,30 @@ void Data::refreshData(std::string path)
     OpenXLSX::XLDocument doc;
     doc.open(path);
     OpenXLSX::XLWorksheet wks = doc.workbook().sheet(1);
-    nowide::cout << wks.rowCount() << std::endl;
-    for (unsigned int i = 2; i <= wks.rowCount(); i++)
+    try
     {
-        const unsigned int index = wks.cell(i, 1).value();
-        const std::string id = (wks.cell(i, 2).value().get<std::string>());
-        const std::string lastName = (wks.cell(i, 3).value().get<std::string>());
-        const std::string firstName = (wks.cell(i, 4).value().get<std::string>());
-        const std::string classId = (wks.cell(i, 5).value().get<std::string>());
-        const int64_t grade = wks.cell(i, 6).value().get<int64_t>();
-        Student *student = new Student();
-        student->setIndex(index);
-        student->setStudentId(id);
-        student->setLastName(lastName);
-        student->setFirstName(firstName);
-        student->setClassId(classId);
-        student->setGrade(grade);
-        Students.push_back(student);
-        checkId[id] = true;
+        for (unsigned int i = 2; i <= wks.rowCount(); i++)
+        {
+            const unsigned int index = wks.cell(i, 1).value();
+            const std::string id = (wks.cell(i, 2).value().get<std::string>());
+            const std::string lastName = (wks.cell(i, 3).value().get<std::string>());
+            const std::string firstName = (wks.cell(i, 4).value().get<std::string>());
+            const std::string classId = (wks.cell(i, 5).value().get<std::string>());
+            const int grade = wks.cell(i, 6).value().get<int>();
+            Student *student = new Student();
+            student->setIndex(index);
+            student->setStudentId(id);
+            student->setLastName(lastName);
+            student->setFirstName(firstName);
+            student->setClassId(classId);
+            student->setGrade(grade);
+            Students.push_back(student);
+            checkId[id] = true;
+        }
+    }
+    catch (const std::exception &e)
+    {
+        std::string error = e.what(); // hide warning while compile in cmake
     }
 
     doc.close();
@@ -83,12 +89,10 @@ void Data::Remove(std::string path, std::string ID)
         OpenXLSX::XLWorksheet wks = doc.workbook().sheet(1);
         wks.row((student->getIndex() + 1)).values().clear();
 
-        for (int i = student->getIndex() + 1; i <= getNumberOfStudent() + 1; i++) // BUG: crash program
+        for (int i = student->getIndex() + 1; i <= getNumberOfStudent() + 1; i++)
         {
             if (i == getNumberOfStudent() + 1)
             {
-                // wks.row((uint32_t)(i)).values() = wks.row((uint32_t)(0)).values();
-
                 wks.row((uint32_t)(i)).values().clear();
             }
             else
@@ -99,8 +103,7 @@ void Data::Remove(std::string path, std::string ID)
         }
         doc.save();
         doc.close();
-        // nowide::cout << "Testing" << std::endl;
-        nowide::cout << "Remove successfully" << std::endl;
+        console.printWithColor("\nRemove successfully\n", LIGHT_GREEN);
         refreshData(path);
     }
     else
@@ -139,6 +142,7 @@ void Data::printStudentHigherThan(int grade)
 std::vector<Student *> Data::findStudentById(std::string ID)
 {
     std::vector<Student *> Res;
+    bool flag = false;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getStudentId() == ID)
@@ -147,64 +151,83 @@ std::vector<Student *> Data::findStudentById(std::string ID)
             Res.push_back(Students[i]);
             // std::cout << "\t";
             // Students[i]->getReverseName();
+            flag = true;
         }
     }
+    if (!flag)
+        console.printWithColor("\nCan't find this student\n", LIGHT_RED);
     return Res;
 }
 
 std::vector<Student *> Data::findStudentByLastName(std::string lastName)
 {
     std::vector<Student *> Res;
+    bool flag = false;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getLastName() == lastName)
         {
             printStudent(Students[i]);
             Res.push_back(Students[i]);
+            flag = true;
         }
     }
+    if (!flag)
+        console.printWithColor("\nCan't find this student\n", LIGHT_RED);
     return Res;
 }
 
 std::vector<Student *> Data::findStudentbyFirstName(std::string firstName)
 {
     std::vector<Student *> Res;
+    bool flag = false;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getFirstName() == firstName)
         {
             printStudent(Students[i]);
             Res.push_back(Students[i]);
+            flag = true;
         }
     }
+    if (!flag)
+        console.printWithColor("\nCan't find this student\n", LIGHT_RED);
     return Res;
 }
 
 std::vector<Student *> Data::findStudentbyClassId(std::string classId)
 {
     std::vector<Student *> Res;
+    bool flag = false;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getClassId() == classId)
         {
             printStudent(Students[i]);
             Res.push_back(Students[i]);
+            flag = true;
         }
     }
+    if (!flag)
+        console.printWithColor("\nCan't find this student\n", LIGHT_RED);
     return Res;
 }
 
 std::vector<Student *> Data::findStudentbyGrade(int grade)
 {
     std::vector<Student *> Res;
+    bool flag = false;
     for (size_t i = 0; i < getNumberOfStudent(); i++)
     {
         if (Students[i]->getGrade() == grade)
         {
             printStudent(Students[i]);
             Res.push_back(Students[i]);
+            flag = true;
         }
     }
+    if (!flag)
+        console.printWithColor("\nCan't find this student\n", LIGHT_RED);
     return Res;
 }
 
@@ -314,12 +337,11 @@ void Data::sortStudentbyGrade()
 void Data::printStudent(Student *student)
 {
     // I use nowide to print out UTF-8 but it is not a radical solution to solve the problem string can't get UTF-8 character.
-    nowide::cout << student->getIndex() << ", ";
+    // nowide::cout << student->getIndex() << ", ";
     nowide::cout << student->getStudentId() << ", ";
     nowide::cout << student->getLastName() << ", ";
     nowide::cout << student->getFirstName() << ", ";
     nowide::cout << student->getClassId() << ", ";
     nowide::cout << student->getGrade();
-    // std::cout << "\tSize: " << student->getAllName().size();
     nowide::cout << std::endl;
 }

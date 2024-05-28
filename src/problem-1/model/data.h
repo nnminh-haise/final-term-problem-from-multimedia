@@ -7,15 +7,8 @@
 #include <algorithm>
 #include <iomanip>
 #include <vector>
-#include <locale>
 #include <map>
 #include <set>
-#include <codecvt>
-#include <sstream>
-#ifdef _WIN32
-#include <fcntl.h>
-#include <io.h>
-#endif
 #include "student.h"
 #include "output.h"
 
